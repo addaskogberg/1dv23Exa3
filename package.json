@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/1dv023/as224wq-examination-3/issues"
   },
-  "homepage": "https://github.com/1dv023/as224wq-examination-3#readme"
+  "homepage": "https://github.com/1dv023/as224wq-examination-3#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "standard": "^11.0.0"
+  }
 }
