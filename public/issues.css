@@ -1,0 +1,20 @@
+body{
+  background-color: bisque;
+}
+
+img {
+  width: 32px;
+}
+
+#issues {
+  display: block;
+  width: 48%;
+  float: left;
+}
+
+#comments {
+  display: block;
+  width: 48%;
+  margin-left: 52%;
+  margin-top: 47px;
+}

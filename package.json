@@ -24,6 +24,10 @@
   "homepage": "https://github.com/1dv023/as224wq-examination-3#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "octonode": "^0.9.2",
+    "request-payload": "^1.0.1",
+    "secure-compare": "^3.0.1",
+    "socket.io": "^2.0.4",
     "standard": "^11.0.0"
   },
   "devDependencies": {
