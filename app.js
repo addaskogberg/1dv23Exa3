@@ -3,7 +3,7 @@
  * @author Adda Skogberg
  * @version 1.0
  */
-
+require('dotenv').config()
 const http = require('http')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -40,8 +40,8 @@ io.on('connection', function (socket) {
 
     // Set up verification for SHA security
 
-    console.log(process.env.USER_KEY)
-    let hmac = crypto.createHmac('sha1', 'leyndarmal') // ändra till environment variabel
+    console.log(process.env.KEY_USER)
+    let hmac = crypto.createHmac('sha1', process.env.KEY_USER) // ändra till environment variabel
     hmac.update(payload)
     let hashedSecret = 'sha1=' + hmac.digest('hex')
 
