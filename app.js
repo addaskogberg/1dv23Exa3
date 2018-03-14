@@ -10,7 +10,6 @@ const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const secureCompare = require('secure-compare')
 const port = process.env.PORT || 80
-
 const app = express()
 
 var server = http.createServer(app).listen(port, () => {
@@ -40,6 +39,8 @@ io.on('connection', function (socket) {
     console.log('x-github-event ' + event)
 
     // Set up verification for SHA security
+
+    console.log(process.env.USER_KEY)
     let hmac = crypto.createHmac('sha1', 'leyndarmal') // ändra till environment variabel
     hmac.update(payload)
     let hashedSecret = 'sha1=' + hmac.digest('hex')
