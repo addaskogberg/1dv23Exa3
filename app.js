@@ -39,9 +39,7 @@ io.on('connection', function (socket) {
     console.log('x-github-event ' + event)
 
     // Set up verification for SHA security
-
-    console.log(process.env.KEY_USER)
-    let hmac = crypto.createHmac('sha1', process.env.KEY_USER) // ändra till environment variabel
+    let hmac = crypto.createHmac('sha1', 'leyndarmal')// ändra till environment variabel
     hmac.update(payload)
     let hashedSecret = 'sha1=' + hmac.digest('hex')
 

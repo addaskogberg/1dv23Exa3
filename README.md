@@ -6,6 +6,7 @@ What is the address to your application?
 
 Describe what you have done to make your application secure, both in code and when configuring your application server
 *Check if event is sent from git (status 200) or from rouge host (status 403 unaothorized)
+*Using package dotenv to handle environmental variables and not publishing it to git using the.gitignore file to keep the secret a secret.
 
 Describe the following parts, how you are using them and what their purpose is
 
@@ -16,6 +17,7 @@ Process manager
 TLS certificates
 
 Environment variables
+Node package dotenv........
 
 What differs in your application when running it in development from running it in production?
 
