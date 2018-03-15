@@ -57,6 +57,7 @@ io.on('connection', function (socket) {
       }
       res.sendStatus(200)
     } else {
+      console.log('error unauthorized request')
       res.sendStatus(403)
     }
   })
