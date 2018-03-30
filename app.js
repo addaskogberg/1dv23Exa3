@@ -49,7 +49,6 @@ io.on('connection', function (socket) {
     hmac.update(payload)
     let hashedSecret = 'sha1=' + hmac.digest('hex')
 
-    
     if (secureCompare(signature, hashedSecret)) {
       console.log('the data came from Git')
       if (event === 'issues') {
