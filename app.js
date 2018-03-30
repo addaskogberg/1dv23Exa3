@@ -9,6 +9,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const secureCompare = require('secure-compare')
+const fetch = require('node-fetch')
 const port = process.env.PORT || 80
 const app = express()
 
@@ -26,6 +27,11 @@ app.get('/payload', (req, res, next) => {
 })
 
 io.on('connection', function (socket) {
+  console.log('in socket')
+  getIssues().then(result => {
+    io.emit('issue', { issue: result })
+  })
+
   app.post('/payload', (req, res, next) => {
     // POST data from Git
     let payload = JSON.stringify(req.body)
@@ -62,3 +68,8 @@ io.on('connection', function (socket) {
     }
   })
 })
+async function getIssues () {
+  const response = await fetch('https://api.github.com/repos/1dv023/as224wq-examination-3/issues', { headers: { 'Authorization': process.env.KEY_GIT } })
+  const data = await response.json()
+  return data
+}

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="issues.css" />
   <script src='/socket.io/socket.io.js'></script>
-  <script src='issues.js'></script>
+ <!-- <script src='issues.js'></script> -->
 </head>
 <body>
   <h1>1dv023 Exam 3 - Issue List</h1>
@@ -33,15 +33,16 @@
     })
 
     function addIssue (message) {
-      console.log(message.issue)
-      var paragraph = message.issue.title
-        + ' saying ' + message.issue.body
-        + ' posted by ' + message.issue.user.login 
-        + ' at ' + message.issue.created_at
+      console.log(message)
+      for( let i = 0; i < message.issue.length; i++){
+      var paragraph = message.issue[i].title
+        + ' saying ' + message.issue[i].body
+        + ' posted by ' + message.issue[i].user.login 
+        + ' at ' + message.issue[i].created_at
       var text = document.createTextNode(paragraph)
       var p = document.createElement('p')
       var img = document.createElement('img')
-      img.setAttribute('src', message.issue.user.avatar_url)
+      img.setAttribute('src', message.issue[i].user.avatar_url)
       var div = document.createElement('div')
       div.setAttribute('class', 'issue')
 
@@ -50,6 +51,7 @@
       div.appendChild(img)
       div.appendChild(p)
       issue.appendChild(div)
+      }
     }
 
     function addIssueComment (message) {
